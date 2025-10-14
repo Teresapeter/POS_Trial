@@ -75,6 +75,9 @@ POS_Trial/
 │   ├── index.html
 │   ├── dashboard.html
 │   ├── login.html
+    ├── payment.html
+    ├── order.html
+    ├── order history.html
 │   ├── js/
 │   ├── css/
 │   └── images/

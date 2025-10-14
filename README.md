@@ -180,7 +180,7 @@ We welcome contributions to enhance this project!
 📧 CONTACT INFORMATION
 ------------------------------------------
 Developer: Sege Peter  | Teresa Peter
-Email: segepeter71@gmail.com  |
+
 
 ------------------------------------------
 📄 LICENSE
@@ -191,9 +191,9 @@ You are free to use, modify, and distribute it with proper credit.
 ------------------------------------------
 ✨ CREDITS
 ------------------------------------------
-Created with dedication by **Sege Peter**  
+Created with dedication by **Sege Peter** & **Teresa Peter**  
 “Let’s keep moving forward — one design, one system at a time.”
 
 ==========================================
-END OF README
+END 
 ==========================================

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier Dashboard - POS</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Your global styles -->
+    <link rel="stylesheet" href="css/dashboard cashier.css"> <!-- Page-specific styles -->
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Restaurant POS</h1>
+        <div class="user-info">
+            <span>Cashier: Jane Doe</span>
+            <a href="/index.html" class="logout-btn">Log Out</a>
+        </div>
+    </header>
+
+    <main class="pos-container">
+        <!-- Left Side: Menu Items -->
+        <section class="menu-section">
+            <h2>Menu</h2>
+            <div class="menu-categories" id="menu-categories">
+                <button class="category-btn active" data-filter="all">All</button>
+                <button class="category-btn" data-filter="food">Food</button>
+                <button class="category-btn" data-filter="drinks">Drinks</button>
+                <button class="category-btn" data-filter="desserts">Desserts</button>
+            </div>
+            <div class="menu-items-grid" id="menu-items-grid">
+                <!-- Menu item cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Right Side: Cart and Checkout -->
+        <section class="cart-section">
+            <h2>Current Order</h2>
+            <div class="cart-items" id="cart-items">
+                <p class="cart-empty-msg">Your cart is empty.</p>
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">Ksh 0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (16%)</span>
+                    <span id="cart-tax">Ksh 0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="cart-total">Ksh 0.00</span>
+                </div>
+            </div>
+            <button class="checkout-btn" id="checkout-btn" disabled>Proceed to Payment</button>
+        </section>
+    </main>
+
+    <!-- Payment Modal (Hidden by default) -->
+    <div class="modal-overlay hidden" id="payment-modal">
+        <div class="modal-content">
+            <button class="close-modal-btn" id="close-payment-modal">&times;</button>
+            <h3>Complete Payment</h3>
+            <p>Total Amount: <span id="payment-total">Ksh 0.00</span></p>
+            <div class="payment-options">
+                <button class="payment-btn" data-method="Cash">Pay with Cash</button>
+                <button class="payment-btn" data-method="Mpesa">Pay with M-Pesa</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Receipt Modal (Hidden by default) -->
+    <div class="modal-overlay hidden" id="receipt-modal">
+        <div class="modal-content receipt">
+            <button class="close-modal-btn" id="close-receipt-modal">&times;</button>
+            <h3>Order Receipt</h3>
+            <div id="receipt-content">
+                <!-- Receipt details will be inserted here -->
+            </div>
+            <div class="receipt-actions">
+                <button id="print-receipt-btn">Print Receipt</button>
+                <button id="new-order-btn">Start New Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard cashier.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KA-AKWACHA Hangovers Hotel - POS Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="hotel-info">
+                    <div class="hotel-icon">🍺</div>
+                    <div>
+                        <h1>KA-AKWACHA</h1>
+                        <p>Hangovers Hotel</p>
+                    </div>
+                </div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li class="active"><a href="#"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="#"><span class="icon">🍽️</span> Orders</a></li>
+                <li><a href="#"><span class="icon">📦</span> Inventory</a></li>
+                <li><a href="#"><span class="icon">👥</span> Customers</a></li>
+                <li><a href="#"><span class="icon">📈</span> Reports</a></li>
+                <li><a href="#"><span class="icon">⚙️</span> Settings</a></li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <div class="header-left">
+                    <h2>POS Dashboard</h2>
+                    <p id="current-date">Loading date...</p>
+                </div>
+                
+                <div class="header-right">
+                    <div class="user-info">
+                        <span>Welcome, <strong id="username-display">Admin</strong></span>
+                        <div class="user-role">Manager</div>
+                    </div>
+                    <button class="logout-btn" id="logout-btn">
+                        <span class="logout-icon">🚪</span> Logout
+                    </button>
+                </div>
+            </div>
+            
+            <div class="stats-cards">
+                <div class="stat-card revenue">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <h3>TODAY'S REVENUE</h3>
+                        <div class="value">ZK 12,480</div>
+                        <div class="trend positive">+15% from yesterday</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card orders">
+                    <div class="stat-icon">📋</div>
+                    <div class="stat-info">
+                        <h3>ACTIVE ORDERS</h3>
+                        <div class="value">18</div>
+                        <div class="trend positive">+3 new</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card customers">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h3>GUESTS TODAY</h3>
+                        <div class="value">42</div>
+                        <div class="trend positive">+8 from last week</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card occupancy">
+                    <div class="stat-icon">🏨</div>
+                    <div class="stat-info">
+                        <h3>ROOM OCCUPANCY</h3>
+                        <div class="value">78%</div>
+                        <div class="trend positive">92% expected tonight</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-content">
+                <div class="recent-orders">
+                    <div class="section-header">
+                        <h3>Recent Orders</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="orders-table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Items</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-2154</td>
+                                    <td>John Banda</td>
+                                    <td>2 Beer, Chips</td>
+                                    <td>ZK 85.00</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td>14:30</td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-2153</td>
+                                    <td>Sarah Mwale</td>
+                                    <td>Wine, Chicken</td>
+                                    <td>ZK 120.50</td>
+                                    <td><span class="status pending">Preparing</span></td>
+                                    <td>14:15</td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-2152</td>
+                                    <td>Mike Tembo</td>
+                                    <td>3 Beer, Nshima</td>
+                                    <td>ZK 65.00</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td>13:45</td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-2151</td>
+                                    <td>Room 12</td>
+                                    <td>Whisky, Snacks</td>
+                                    <td>ZK 95.00</td>
+                                    <td><span class="status pending">Serving</span></td>
+                                    <td>13:20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <div class="section-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn new-order">
+                            <span class="action-icon">➕</span>
+                            New Order
+                        </button>
+                        <button class="action-btn check-in">
+                            <span class="action-icon">🔑</span>
+                            Check In
+                        </button>
+                        <button class="action-btn inventory">
+                            <span class="action-icon">📦</span>
+                            Inventory
+                        </button>
+                        <button class="action-btn reports">
+                            <span class="action-icon">📊</span>
+                            Reports
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

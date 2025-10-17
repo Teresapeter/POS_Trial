@@ -136,8 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const receiptHTML = `
             <div class="receipt-header">
-                <h3>Bistro POS</h3>
-                <p>123 Restaurant Lane, Nairobi</p>
+                <h3>Kakwacha POS</h3>
+                <p>Kakwacha,Kisumu</p>
                 <p>Thank you for your visit!</p>
             </div>
             <div class="receipt-body">

@@ -17,255 +17,356 @@
                         <p>Hangovers Hotel</p>
                     </div>
                 </div>
+                <div class="user-role-badge" id="user-role-badge">Admin</div>
             </div>
             
             <ul class="sidebar-menu">
-                <li class="active"><a href="#" data-tab="tab-dashboard"><span class="icon">📊</span> Dashboard</a></li>
-                <li><a href="#" data-tab="tab-orders"><span class="icon">🍽️</span> Orders</a></li>
-                <li><a href="#"><span class="icon">📦</span> Inventory</a></li>
-                <li><a href="#"><span class="icon">👥</span> Customers</a></li>
-                <li><a href="#"><span class="icon">📈</span> Reports</a></li>
-                <li><a href="#"><span class="icon">⚙️</span> Settings</a></li>
+                <li class="active"><a href="#" data-section="dashboard"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="order.html" data-section="orders"><span class="icon">🍽️</span> Orders</a></li>
+                <li><a href="#" data-section="inventory"><span class="icon">📦</span> Inventory</a></li>
+                <li><a href="#" data-section="customers"><span class="icon">👥</span> Customers</a></li>
+                <li><a href="#" data-section="reports"><span class="icon">📈</span> Reports</a></li>
+                <li><a href="#" data-section="settings"><span class="icon">⚙️</span> Settings</a></li>
             </ul>
         </div>
         
         <div class="main-content">
             <div class="header">
                 <div class="header-left">
-                    <h2>POS Dashboard</h2>
+                    <h2>POS Dashboard <span class="currency-tag">KES</span></h2>
                     <p id="current-date">Loading date...</p>
                 </div>
                 
                 <div class="header-right">
                     <div class="user-info">
                         <span>Welcome, <strong id="username-display">Admin</strong></span>
-                        <div class="user-role">Manager</div>
+                        <div class="user-role" id="user-role-display">Manager</div>
+                    </div>
+                    <div class="real-time-indicator">
+                        <span class="indicator-dot"></span>
+                        <span>Live Updates</span>
                     </div>
                     <button class="logout-btn" id="logout-btn">
                         <span class="logout-icon">🚪</span> Logout
                     </button>
                 </div>
             </div>
-            
-            <div class="stats-cards" id="tab-dashboard" data-tab-panel>
-                <div class="stat-card revenue">
-                    <div class="stat-icon">💰</div>
-                    <div class="stat-info">
-                        <h3>TODAY'S REVENUE</h3>
-                        <div class="value">ZK 12,480</div>
-                        <div class="trend positive">+15% from yesterday</div>
-                    </div>
-                </div>
-                
-                <div class="stat-card orders">
-                    <div class="stat-icon">📋</div>
-                    <div class="stat-info">
-                        <h3>ACTIVE ORDERS</h3>
-                        <div class="value">18</div>
-                        <div class="trend positive">+3 new</div>
-                    </div>
-                </div>
-                
-                <div class="stat-card customers">
-                    <div class="stat-icon">👥</div>
-                    <div class="stat-info">
-                        <h3>GUESTS TODAY</h3>
-                        <div class="value">42</div>
-                        <div class="trend positive">+8 from last week</div>
-                    </div>
-                </div>
-                
-                <div class="stat-card occupancy">
-                    <div class="stat-icon">🏨</div>
-                    <div class="stat-info">
-                        <h3>ROOM OCCUPANCY</h3>
-                        <div class="value">78%</div>
-                        <div class="trend positive">92% expected tonight</div>
-                    </div>
-                </div>
+
+            <!-- Quick Actions Bar -->
+            <div class="quick-actions-bar" id="quick-actions">
+                <button class="quick-action-btn primary" id="new-order-btn">
+                    <span class="action-icon">➕</span>
+                    New Order
+                </button>
+                <button class="quick-action-btn success" id="process-payment-btn">
+                    <span class="action-icon">💳</span>
+                    Process Payment
+                </button>
+                <button class="quick-action-btn info" id="view-reports-btn">
+                    <span class="action-icon">📊</span>
+                    View Reports
+                </button>
+                <button class="quick-action-btn warning" id="manage-inventory-btn">
+                    <span class="action-icon">📦</span>
+                    Manage Inventory
+                </button>
             </div>
             
-            <div class="dashboard-content">
-                <div class="recent-orders">
-                    <div class="section-header">
-                        <h3>Recent Orders</h3>
-                        <a href="#" class="view-all" data-tab="tab-orders">View All</a>
+            <!-- Dashboard Section -->
+            <div class="section active" id="dashboard-section">
+                <div class="stats-cards">
+                    <div class="stat-card revenue">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <h3>TODAY'S REVENUE</h3>
+                            <div class="value">KES <span id="revenue-amount">0</span></div>
+                            <div class="trend" id="revenue-trend">Loading...</div>
+                        </div>
                     </div>
-                    <div class="orders-table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Order ID</th>
-                                    <th>Customer</th>
-                                    <th>Items</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#ORD-2154</td>
-                                    <td>John Banda</td>
-                                    <td>2 Beer, Chips</td>
-                                    <td>ZK 85.00</td>
-                                    <td><span class="status completed">Completed</span></td>
-                                    <td>14:30</td>
-                                </tr>
-                                <tr>
-                                    <td>#ORD-2153</td>
-                                    <td>Sarah Mwale</td>
-                                    <td>Wine, Chicken</td>
-                                    <td>ZK 120.50</td>
-                                    <td><span class="status pending">Preparing</span></td>
-                                    <td>14:15</td>
-                                </tr>
-                                <tr>
-                                    <td>#ORD-2152</td>
-                                    <td>Mike Tembo</td>
-                                    <td>3 Beer, Nshima</td>
-                                    <td>ZK 65.00</td>
-                                    <td><span class="status completed">Completed</span></td>
-                                    <td>13:45</td>
-                                </tr>
-                                <tr>
-                                    <td>#ORD-2151</td>
-                                    <td>Room 12</td>
-                                    <td>Whisky, Snacks</td>
-                                    <td>ZK 95.00</td>
-                                    <td><span class="status pending">Serving</span></td>
-                                    <td>13:20</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    
+                    <div class="stat-card orders">
+                        <div class="stat-icon">📋</div>
+                        <div class="stat-info">
+                            <h3>ACTIVE ORDERS</h3>
+                            <div class="value"><span id="orders-count">0</span></div>
+                            <div class="trend" id="orders-trend">Loading...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card food">
+                        <div class="stat-icon">🍽️</div>
+                        <div class="stat-info">
+                            <h3>FOOD SALES</h3>
+                            <div class="value">KES <span id="food-sales">0</span></div>
+                            <div class="trend" id="food-trend">Loading...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card drinks">
+                        <div class="stat-icon">🍻</div>
+                        <div class="stat-info">
+                            <h3>DRINKS SALES</h3>
+                            <div class="value">KES <span id="drinks-sales">0</span></div>
+                            <div class="trend" id="drinks-trend">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Activity Feed -->
+                <div class="activity-section">
+                    <div class="section-header">
+                        <h3>Real-time Activity</h3>
+                        <button class="refresh-btn" id="refresh-activity">🔄 Refresh</button>
+                    </div>
+                    <div class="activity-feed" id="activity-feed">
+                        <div class="activity-item">
+                            <span class="activity-time">Just now</span>
+                            <span class="activity-text">System initialized. Loading real-time data...</span>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="quick-actions">
-                    <div class="section-header">
-                        <h3>Quick Actions</h3>
+                <div class="dashboard-content">
+                    <div class="menu-items-section">
+                        <div class="section-header">
+                            <h3>Available Menu Items <small class="currency-note">(in KES)</small></h3>
+                            <div class="controls">
+                                <div class="search-box">
+                                    <input type="text" id="search-items" placeholder="Search menu items...">
+                                    <span class="search-icon">🔍</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <div class="filter-group">
+                                <label for="category-filter">Category:</label>
+                                <select id="category-filter" class="filter-select">
+                                    <option value="all">All Categories</option>
+                                    <option value="food">Food Only</option>
+                                    <option value="drinks">Drinks Only</option>
+                                    <option value="beer">Beer</option>
+                                    <option value="spirits">Spirits</option>
+                                    <option value="wine">Wine</option>
+                                    <option value="water">Water & Soft Drinks</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label for="price-filter">Price Range:</label>
+                                <select id="price-filter" class="filter-select">
+                                    <option value="all">All Prices</option>
+                                    <option value="0-200">KES 0 - 200</option>
+                                    <option value="200-500">KES 200 - 500</option>
+                                    <option value="500-1000">KES 500 - 1,000</option>
+                                    <option value="1000-2000">KES 1,000 - 2,000</option>
+                                    <option value="2000+">KES 2,000+</option>
+                                </select>
+                            </div>
+                            
+                            <button id="reset-filters" class="reset-btn">Reset Filters</button>
+                        </div>
+                        
+                        <div class="items-grid" id="menu-items-grid">
+                            <!-- Menu items will be dynamically loaded here -->
+                        </div>
                     </div>
-                    <div class="action-buttons">
-                        <button class="action-btn new-order" data-tab="tab-new-order">
-                            <span class="action-icon">➕</span>
-                            New Order
-                        </button>
-                        <button class="action-btn check-in">
-                            <span class="action-icon">🔑</span>
-                            Check In
-                        </button>
-                        <button class="action-btn inventory">
-                            <span class="action-icon">📦</span>
-                            Inventory
-                        </button>
-                        <button class="action-btn reports">
-                            <span class="action-icon">📊</span>
-                            Reports
-                        </button>
+                    
+                    <div class="order-section">
+                        <div class="section-header">
+                            <h3>Current Order</h3>
+                            <div class="order-controls">
+                                <select id="table-select" class="table-select">
+                                    <option value="takeaway">Take Away</option>
+                                    <option value="counter">Counter</option>
+                                    <option value="table1">Table 1</option>
+                                    <option value="table2">Table 2</option>
+                                    <option value="table3">Table 3</option>
+                                    <option value="table4">Table 4</option>
+                                    <option value="table5">Table 5</option>
+                                </select>
+                                <button class="clear-order-btn" id="clear-order">Clear</button>
+                            </div>
+                        </div>
+                        
+                        <div class="order-items" id="order-items">
+                            <div class="empty-order">
+                                <p>No items in order</p>
+                                <small>Add items from the menu</small>
+                            </div>
+                        </div>
+                        
+                        <div class="order-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">KES 0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax (16%):</span>
+                                <span id="tax">KES 0</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span id="total">KES 0</span>
+                            </div>
+                            
+                            <div class="order-actions">
+                                <button class="checkout-btn" id="checkout-btn">
+                                    <span class="checkout-icon">💳</span>
+                                    Process Payment
+                                </button>
+                                <button class="save-order-btn" id="save-order-btn">
+                                    <span class="save-icon">📤</span>
+                                    Send to Kitchen
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- New Order Tab -->
-            <section id="tab-new-order" data-tab-panel hidden>
+            <!-- Orders Section -->
+            <div class="section" id="orders-section">
                 <div class="section-header">
-                    <h3>Register New Order</h3>
-                </div>
-                <form id="new-order-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="orderCustomer">Customer/Room</label>
-                            <input type="text" id="orderCustomer" placeholder="e.g., Room 12 or John" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="orderItems">Items</label>
-                            <input type="text" id="orderItems" placeholder="e.g., 2 Beers, Chips" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="orderAmount">Amount (ZK)</label>
-                            <input type="number" id="orderAmount" placeholder="0.00" min="0" step="0.01" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="orderStatus">Status</label>
-                            <select id="orderStatus">
-                                <option value="pending">Pending</option>
-                                <option value="preparing">Preparing</option>
-                                <option value="serving">Serving</option>
-                                <option value="completed">Completed</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="action-btn primary">Save Order</button>
-                        <button type="reset" class="action-btn">Clear</button>
-                    </div>
-                </form>
-            </section>
-
-            <!-- Orders Tab -->
-            <section id="tab-orders" data-tab-panel hidden>
-                <div class="section-header">
-                    <h3>Orders</h3>
-                </div>
-                <div class="filters">
-                    <select id="ordersStatusFilter">
-                        <option value="all">All</option>
-                        <option value="pending">Pending</option>
-                        <option value="preparing">Preparing</option>
-                        <option value="serving">Serving</option>
-                        <option value="completed">Completed</option>
-                    </select>
+                    <h3>Active Orders</h3>
+                    <button class="refresh-btn" id="refresh-orders">🔄 Refresh</button>
                 </div>
                 <div class="orders-table-container">
-                    <table id="orders-table">
+                    <table>
                         <thead>
                             <tr>
                                 <th>Order ID</th>
-                                <th>Customer</th>
+                                <th>Table</th>
+                                <th>Waiter</th>
                                 <th>Items</th>
-                                <th>Amount</th>
+                                <th>Amount (KES)</th>
                                 <th>Status</th>
                                 <th>Time</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="active-orders-body">
+                            <!-- Active orders will be loaded here -->
                         </tbody>
                     </table>
                 </div>
-            </section>
+            </div>
 
-            <!-- Payments Tab -->
-            <section id="tab-payments" data-tab-panel hidden>
+            <!-- Inventory Section -->
+            <div class="section" id="inventory-section">
                 <div class="section-header">
-                    <h3>Payments</h3>
+                    <h3>Inventory Management</h3>
+                    <button class="add-item-btn" id="add-inventory-btn">+ Add New Item</button>
                 </div>
-                <div class="filters">
-                    <select id="paymentsMethodFilter">
-                        <option value="all">All Methods</option>
-                        <option value="cash">Cash</option>
-                        <option value="card">Card</option>
-                        <option value="mobile">Mobile Money</option>
-                    </select>
+                <div class="inventory-content">
+                    <div class="inventory-grid" id="inventory-grid">
+                        <!-- Inventory items will be loaded here -->
+                    </div>
                 </div>
-                <div class="orders-table-container">
-                    <table id="payments-table">
+            </div>
+
+            <!-- Customers Section -->
+            <div class="section" id="customers-section">
+                <div class="section-header">
+                    <h3>Customer Management</h3>
+                    <button class="add-item-btn" id="add-customer-btn">+ Add Customer</button>
+                </div>
+                <div class="customers-table-container">
+                    <table>
                         <thead>
                             <tr>
-                                <th>Payment ID</th>
-                                <th>Order ID</th>
-                                <th>Method</th>
-                                <th>Amount</th>
-                                <th>Time</th>
+                                <th>Customer ID</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Total Orders</th>
+                                <th>Total Spent</th>
+                                <th>Last Visit</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="customers-body">
+                            <!-- Customers will be loaded here -->
                         </tbody>
                     </table>
                 </div>
-            </section>
+            </div>
+
+            <!-- Reports Section -->
+            <div class="section" id="reports-section">
+                <div class="section-header">
+                    <h3>Sales Reports</h3>
+                    <div class="report-controls">
+                        <select id="report-period" class="report-select">
+                            <option value="today">Today</option>
+                            <option value="yesterday">Yesterday</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                        <button class="download-btn" id="download-report">📥 Download PDF</button>
+                    </div>
+                </div>
+                <div class="reports-content" id="reports-content">
+                    <div class="report-summary">
+                        <div class="report-card">
+                            <h4>Total Revenue</h4>
+                            <div class="report-value" id="report-revenue">KES 0</div>
+                        </div>
+                        <div class="report-card">
+                            <h4>Total Orders</h4>
+                            <div class="report-value" id="report-orders">0</div>
+                        </div>
+                        <div class="report-card">
+                            <h4>Average Order Value</h4>
+                            <div class="report-value" id="report-average">KES 0</div>
+                        </div>
+                    </div>
+                    <div class="report-chart">
+                        <canvas id="sales-chart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div class="section" id="settings-section">
+                <div class="section-header">
+                    <h3>System Settings</h3>
+                </div>
+                <div class="settings-content">
+                    <div class="setting-group">
+                        <h4>Business Information</h4>
+                        <div class="setting-item">
+                            <label>Hotel Name:</label>
+                            <input type="text" id="hotel-name" value="KA-AKWACHA Hangovers Hotel">
+                        </div>
+                        <div class="setting-item">
+                            <label>Currency:</label>
+                            <select id="currency-select">
+                                <option value="KES">Kenyan Shilling (KES)</option>
+                                <option value="USD">US Dollar (USD)</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Tax Rate (%):</label>
+                            <input type="number" id="tax-rate" value="16" min="0" max="30">
+                        </div>
+                    </div>
+                    <div class="setting-group">
+                        <h4>Receipt Settings</h4>
+                        <div class="setting-item">
+                            <label>Receipt Footer Message:</label>
+                            <textarea id="receipt-footer">Thank you for visiting KA-AKWACHA Hangovers Hotel!</textarea>
+                        </div>
+                    </div>
+                    <button class="save-settings-btn" id="save-settings">Save Settings</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="Js/dashboard.js"></script>
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <script src="js/database.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
